@@ -1,6 +1,6 @@
 public class PersonBuilder {
 
-    private String firstName = null,  lastName = null, address = Person.NO_ADDRESS;
+    private String firstName = null, lastName = null, address = Person.NO_ADDRESS;
     private int age = Person.NO_AGE;
 
     public PersonBuilder firstName(String firstName) {
