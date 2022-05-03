@@ -15,7 +15,7 @@ public class Main {
             // missing required fields
             Person dad = new PersonBuilder()
                     .firstName("Alex")
-                    .lastName("Gert")
+                    //.lastName("Gert")
                     .age(38)
                     .address("Stockholm")
                     .build();
@@ -32,7 +32,7 @@ public class Main {
             Person grandma = new PersonBuilder()
                     .firstName("Kate")
                     .lastName("Granny")
-                    .age(100)
+                    .age(-100)
                     .build();
             System.out.println("Grandma " + grandma);
         } catch (IllegalArgumentException e) {

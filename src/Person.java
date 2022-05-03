@@ -1,9 +1,11 @@
+import java.util.Objects;
+
 public class Person {
     public static final String NO_ADDRESS = "No address";
     public static final int NO_AGE = 0;
     private final String firstName;
     private final String lastName;
-    private final String address;
+    private String address;
     private int age;
 
     // constructor
@@ -21,7 +23,7 @@ public class Person {
     }
 
     // if person has address
-    /*public boolean hasAddress(Person p) {
+    public boolean hasAddress(Person p) {
         return Objects.equals(p.address, this.address);
     }
 
@@ -35,7 +37,7 @@ public class Person {
 
     public String getLastName() {
         return lastName;
-    }*/
+    }
 
     // return age + 1 for person who has age
     public int getAge() {
@@ -44,13 +46,13 @@ public class Person {
     }
 
     // return No address if address is not defined
-    /*public String getAddress() {
+    public String getAddress() {
         return address != null ? address : NO_ADDRESS;
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }*/
+    }
 
     public void happyBirthday() {
         if (hasAge()) {
@@ -58,9 +60,9 @@ public class Person {
         }
     }
 
-    /*public void setAge(int age) {
+    public void setAge(int age) {
         this.age = age;
-    }*/
+    }
 
     // child getting its parents lastname and address
     public PersonBuilder newChildBuilder() {
