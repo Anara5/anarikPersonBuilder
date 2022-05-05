@@ -1,15 +1,14 @@
-import java.util.Objects;
-
 public class Person {
     public static final String NO_ADDRESS = "No address";
     public static final int NO_AGE = 0;
-    private final String firstName;
-    private final String lastName;
+    // required fields
+    protected String firstName;
+    protected String lastName;
+    // optional fields
     private String address;
     private int age;
 
-    // constructor
-    // minimum required information should be firstName and lastName
+    // constructor. minimum required information should be firstName and lastName
     public Person(String firstName, String lastName, int age, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -17,26 +16,12 @@ public class Person {
         this.address = address;
     }
 
-    // if person has age
-    public boolean hasAge() {
-        return Person.this.age > 0;
-    }
-
-    // if person has address
-    public boolean hasAddress(Person p) {
-        return Objects.equals(p.address, this.address);
-    }
-
-    public String getName() {
-        return firstName + lastName;
-    }
-
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     // return age + 1 for person who has age
@@ -50,18 +35,26 @@ public class Person {
         return address != null ? address : NO_ADDRESS;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }
 
     public void happyBirthday() {
-        if (hasAge()) {
+        if (age > 0) {
             this.age = age + 1;
         }
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     // child getting its parents lastname and address

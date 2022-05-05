@@ -1,31 +1,34 @@
 public class PersonBuilder {
 
-    private String firstName = null, lastName = null, address = Person.NO_ADDRESS;
-    private int age = Person.NO_AGE;
+    protected String firstName;
+    protected String lastName;
+    private String address = Person.NO_ADDRESS;
+    protected int age = Person.NO_AGE;
 
     public PersonBuilder firstName(String firstName) {
-        this.firstName = firstName;
         // if firstname is missing
         if (firstName == null || firstName.isEmpty()) {
             throw new IllegalStateException("Please enter firstname");
         }
+        this.firstName = firstName;
         return this;
     }
 
     public PersonBuilder lastName(String lastName) {
-        this.lastName = lastName;
         // if lastname is missing
         if (lastName == null || lastName.isEmpty()) {
             throw new IllegalStateException("Please enter lastname");
         }
+        this.lastName = lastName;
         return this;
     }
 
     public PersonBuilder age(int age) {
-        this.age = age;
         // if age is a negative integer
-        if (this.age < 0) {
+        if (age < 0) {
             throw new IllegalArgumentException("Age should be a positive integer");
+        } else {
+            this.age = age;
         }
         return this;
     }

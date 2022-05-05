@@ -14,27 +14,17 @@ public class Main {
         try {
             // missing required fields
             Person dad = new PersonBuilder()
-                    .firstName("Alex")
-                    //.lastName("Gert")
-                    .age(38)
-                    .address("Stockholm")
                     .build();
-            Person daughter = dad.newChildBuilder()
-                    .firstName("Elin")
-                    .build();
-            System.out.println("Dad " + dad + " has a daughter " + daughter);
+            System.out.println(dad);
         } catch (IllegalStateException e) {
             e.printStackTrace();
         }
 
         try {
             // age invalid
-            Person grandma = new PersonBuilder()
-                    .firstName("Kate")
-                    .lastName("Granny")
-                    .age(-100)
+            new PersonBuilder()
+                    .age(100)
                     .build();
-            System.out.println("Grandma " + grandma);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
