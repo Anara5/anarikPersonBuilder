@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class PersonBuilder {
 
     protected String firstName;
@@ -6,19 +8,11 @@ public class PersonBuilder {
     protected int age = Person.NO_AGE;
 
     public PersonBuilder firstName(String firstName) {
-        // if firstname is missing
-        if (firstName == null || firstName.isEmpty()) {
-            throw new IllegalStateException("Please enter firstname");
-        }
         this.firstName = firstName;
         return this;
     }
 
     public PersonBuilder lastName(String lastName) {
-        // if lastname is missing
-        if (lastName == null || lastName.isEmpty()) {
-            throw new IllegalStateException("Please enter lastname");
-        }
         this.lastName = lastName;
         return this;
     }
@@ -40,6 +34,10 @@ public class PersonBuilder {
 
     // firstName and lastName are required
     public Person build() {
+        // if firstname is missing
+        Objects.requireNonNull(firstName, "Please enter firstname");
+        // if lastname is missing
+        Objects.requireNonNull(lastName, "Please enter lastname");
         return new Person(firstName, lastName, age, address);
     }
 }

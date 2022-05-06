@@ -13,9 +13,8 @@ public class Main {
 
         try {
             // missing required fields
-            Person dad = new PersonBuilder()
+            new PersonBuilder()
                     .build();
-            System.out.println(dad);
         } catch (IllegalStateException e) {
             e.printStackTrace();
         }
@@ -23,7 +22,7 @@ public class Main {
         try {
             // age invalid
             new PersonBuilder()
-                    .age(100)
+                    .age(-100)
                     .build();
         } catch (IllegalArgumentException e) {
             e.printStackTrace();

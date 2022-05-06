@@ -35,14 +35,6 @@ public class Person {
         return address != null ? address : NO_ADDRESS;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public void setAge(int age) {
         this.age = age;
     }
